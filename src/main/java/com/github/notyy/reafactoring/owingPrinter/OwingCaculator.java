@@ -14,25 +14,21 @@ public class OwingCaculator {
     }
 
     public void printOwing() {
+        double total = 0.0;
+
         //print logo
         System.out.println("********************");
         System.out.println("***customer owing***");
         System.out.println("********************");
 
         //calculate total
-        double total = calculateTotal(orderItems);
+        for(OrderItem orderItem: orderItems){
+            total += orderItem.getAmount();
+        }
 
         //print details
         System.out.println("name:" + name);
         System.out.println("amount:" + total);
-    }
-
-    private double calculateTotal(List<OrderItem> orderItems1) {
-        double total = 0.0;
-        for(OrderItem orderItem: orderItems1){
-            total += orderItem.getAmount();
-        }
-        return total;
     }
 
     public static void main(String[] args){
