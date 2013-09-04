@@ -3,12 +3,12 @@ package com.github.notyy.reafactoring.owingPrinter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OwingCaculator {
+public class OwingCalculator {
 
     private String name;
     private List<OrderItem> orderItems;
 
-    public OwingCaculator(String name, List<OrderItem> orderItems){
+    public OwingCalculator(String name, List<OrderItem> orderItems){
         this.name = name;
         this.orderItems = orderItems;
     }
@@ -41,6 +41,6 @@ public class OwingCaculator {
         orderItems.add(new OrderItem(35.0));
         orderItems.add(new OrderItem(40.0));
 
-        new OwingCaculator("notyy", orderItems).printOwing();
+        new OwingCalculator("notyy", orderItems).printOwing();
     }
 }
