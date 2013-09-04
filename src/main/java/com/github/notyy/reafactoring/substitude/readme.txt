@@ -1,0 +1,1 @@
+this is a small example to demo substitute algorithm (p139)
