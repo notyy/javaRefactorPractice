@@ -1,6 +1,6 @@
 package com.github.notyy.reafactoring.priceCaculator;
 
-public class PriceCaculator {
+public class PriceCalculator {
     public double getPrice(int quantity, double itemPrice) {
         double basePrice = quantity * itemPrice;
         double discountFactor;
