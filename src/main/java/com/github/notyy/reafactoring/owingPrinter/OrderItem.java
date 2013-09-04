@@ -1,4 +1,4 @@
-package com.github.notyy.reafactoring.extractMethod;
+package com.github.notyy.reafactoring.owingPrinter;
 
 public class OrderItem {
     private double amount = 0.0;
