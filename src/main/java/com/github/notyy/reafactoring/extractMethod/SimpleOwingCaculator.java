@@ -3,12 +3,12 @@ package com.github.notyy.reafactoring.extractMethod;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OwingCaculator {
+public class SimpleOwingCaculator {
 
     private String name;
     private List<OrderItem> orderItems;
 
-    public OwingCaculator(String name,List<OrderItem> orderItems){
+    public SimpleOwingCaculator(String name, List<OrderItem> orderItems){
         this.name = name;
         this.orderItems = orderItems;
     }
@@ -36,6 +36,6 @@ public class OwingCaculator {
         orderItems.add(new OrderItem(35.0));
         orderItems.add(new OrderItem(40.0));
 
-        new OwingCaculator("notyy", orderItems).printOwing();
+        new SimpleOwingCaculator("notyy", orderItems).printOwing();
     }
 }
