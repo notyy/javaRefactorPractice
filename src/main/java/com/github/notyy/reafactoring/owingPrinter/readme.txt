@@ -7,3 +7,4 @@ and use following refactor technique to solve them
 2. extract class
 3. extract parameter
 4. rename xxx
+5. inline method

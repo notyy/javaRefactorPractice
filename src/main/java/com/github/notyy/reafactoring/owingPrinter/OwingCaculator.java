@@ -23,12 +23,16 @@ public class OwingCaculator {
 
         //calculate total
         for(OrderItem orderItem: orderItems){
-            total += orderItem.getAmount();
+            total += getAmount(orderItem);
         }
 
         //print details
         System.out.println("name:" + name);
         System.out.println("amount:" + total);
+    }
+
+    private double getAmount(OrderItem orderItem) {
+        return orderItem.getAmount();
     }
 
     public static void main(String[] args){
