@@ -5,3 +5,4 @@ this example used to express following bad smell
 and use following refactor technique to solve them
 1. extract method
 2. extract class
+3. extract parameter
