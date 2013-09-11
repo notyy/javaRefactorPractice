@@ -1,17 +1,13 @@
-package com.github.notyy.testing.priceCalculatorWithDI;
+package com.github.notyy.testing.priceCalculatorWithoutDI;
 
 import com.github.notyy.testing.common.DiscountDAO;
 import com.github.notyy.testing.common.MessageSender;
 
 public class PriceCalculator {
 
-    private DiscountDAO discountDAO;
-    private MessageSender messageSender;
+    private DiscountDAO discountDAO = new DiscountDAO();
+    private MessageSender messageSender = new MessageSender();
 
-    public PriceCalculator(DiscountDAO discountDAO, MessageSender messageSender) {
-        this.discountDAO = discountDAO;
-        this.messageSender = messageSender;
-    }
 
     public double getPrice(int quantity, double itemPrice) {
         double basePrice = quantity * itemPrice;
