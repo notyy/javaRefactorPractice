@@ -15,7 +15,7 @@ public class PriceCalculator {
 
     public double getPrice(int quantity, double itemPrice) {
         double basePrice = quantity * itemPrice;
-        if(basePrice < 100) {
+        if(quantity < 100) {
             throw new IllegalArgumentException("quantity must be >= 100");
         }
 
