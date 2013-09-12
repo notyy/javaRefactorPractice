@@ -11,13 +11,18 @@ public class PriceCalculator {
 
     public double getPrice(int quantity, double itemPrice) {
         double basePrice = quantity * itemPrice;
-        if(quantity < 100) {
+        if (quantity < 100) {
             throw new IllegalArgumentException("quantity must be >= 100");
         }
-        double discountFactor = discountDAO.findDiscount(basePrice);
-        double resultPrice = basePrice * discountFactor;
-        messageSender.send("resultPrice:"+resultPrice);
-        return resultPrice;
+        try {
+            double discountFactor = discountDAO.findDiscount(basePrice);
+            double resultPrice = basePrice * discountFactor;
+            messageSender.send("resultPrice:" + resultPrice);
+            return resultPrice;
+        } catch (Exception ex) {
+            messageSender.send("error getting discountFactor");
+            return -1;
+        }
     }
 
 }
