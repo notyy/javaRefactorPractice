@@ -1,9 +1,11 @@
-package com.github.notyy.fileProcess.step1;
+package com.github.notyy.fileProcess.step2;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
