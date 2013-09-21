@@ -1,0 +1,1 @@
+remove duplicated line, but merge the contents.

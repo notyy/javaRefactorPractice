@@ -1,0 +1,1 @@
+don't write invalid line to result file
