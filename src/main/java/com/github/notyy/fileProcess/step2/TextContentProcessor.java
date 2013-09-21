@@ -27,8 +27,6 @@ public class TextContentProcessor {
         while (line != null) {
             if(isValid(line)){
                 writer.write(processLine(line));
-            }else{
-                System.out.println("inValid:"+line);
             }
             line = reader.readLine();
         }
