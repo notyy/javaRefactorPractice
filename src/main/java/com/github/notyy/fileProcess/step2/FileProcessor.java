@@ -10,13 +10,13 @@ public class FileProcessor {
         this.textContentProcessor = textContentProcessor;
     }
 
-    public void addTitleAndOutput(String srcPath, String targetPath, String[] titles) {
+    public void addTitleAndOutput(String srcPath, String targetPath) {
         BufferedReader reader = null;
         BufferedWriter writer = null;
         try {
             reader = new BufferedReader(new FileReader(srcPath));
             writer = new BufferedWriter(new FileWriter(targetPath));
-            textContentProcessor.addTitleAndCopyContent(titles, reader, writer);
+            textContentProcessor.addTitleAndCopyContent(reader, writer);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

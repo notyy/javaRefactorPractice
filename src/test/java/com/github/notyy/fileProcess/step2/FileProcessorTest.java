@@ -18,18 +18,18 @@ public class FileProcessorTest {
 
     @Test
     public void file_processor_will_add_title_to_result_file() throws IOException {
-        FileProcessor fileProcessor = new FileProcessor(new TextContentProcessor());
+        FileProcessor fileProcessor = new FileProcessor(new TextContentProcessor(TITLES));
         fileProcessor.addTitleAndOutput(
                 SRC_PATH,
-                TARGET_PATH,
-                TITLES);
+                TARGET_PATH
+        );
         List<String> lines = FileReaderUtil.readLines(TARGET_PATH);
-        assertThat(lines.size(), is(11));
+        assertThat(lines.size(), is(10));
 
         String firstLine = lines.get(0);
         assertThat(firstLine, is(StringUtils.join(TITLES, ",")));
 
-        String firstFieldOfLastLine = lines.get(10).split(",")[0];
+        String firstFieldOfLastLine = lines.get(9).split(",")[0];
         assertThat(firstFieldOfLastLine, is("王菲"));
     }
 }

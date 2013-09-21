@@ -1,0 +1,72 @@
+package com.github.notyy.fileProcess.step2;
+
+import com.github.notyy.fileProcess.utils.StringUtil;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InOrder;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.*;
+
+@RunWith(MockitoJUnitRunner.class)
+public class TextContentProcessorTest {
+    @Mock
+    private BufferedReader reader;
+    @Mock
+    private BufferedWriter writer;
+
+    private TextContentProcessor contentProcessor;
+
+    @Test
+    public void title_line_is_String_separated_by_comma(){
+        contentProcessor = new TextContentProcessor(new String[] {"lineNo","content"});
+        assertThat(contentProcessor.titleLine(), is("lineNo,content\n"));
+    }
+
+    @Test
+    public void should_write_title_then_copy_content() throws IOException {
+        when(reader.readLine()).thenReturn("1,abc","2,xyz",null);
+        InOrder inOrder = inOrder(writer);
+        contentProcessor = new TextContentProcessor(new String[] {"lineNo","content"});
+        contentProcessor.addTitleAndCopyContent(reader, writer);
+        inOrder.verify(writer).write(contentProcessor.titleLine());
+        inOrder.verify(writer).write("1,abc\n");
+        inOrder.verify(writer).write("2,xyz\n");
+    }
+
+    @Test
+    public void should_copy_content_if_valid() throws IOException {
+        when(reader.readLine()).thenReturn("1,abc","2",null);
+        InOrder inOrder = inOrder(writer);
+        contentProcessor = new TextContentProcessor(new String[] {"lineNo","content"});
+        contentProcessor.addTitleAndCopyContent(reader, writer);
+        inOrder.verify(writer).write(contentProcessor.titleLine());
+        inOrder.verify(writer).write("1,abc\n");
+        inOrder.verify(writer,never()).write("2\n");
+    }
+
+    @Test
+    public void should_ignore_line_if_invalid() {
+
+    }
+
+    @Test
+    public void must_valid_line(){
+        String[] TITLES = new String[]{"中文名", "昵称", "英文名", "性别", "出生年份", "逝世年份", "身高", "体重", "星座"};
+        String line = "张国荣,[十仔,哥哥,荣少,张发宗,阿仔],Leslie Cheung,男,1956,2003,175,70,处女座";
+        String mick = "迈克杰克逊,,Michael Jackson,男,,,,,";
+        System.out.println("lineLength:"+ StringUtil.splitIgnoreBracket(mick, ",").length);
+        System.out.println("titleLength:"+TITLES.length);
+        contentProcessor = new TextContentProcessor(TITLES);
+        assertThat(contentProcessor.isValid(line), is(true));
+        assertThat(contentProcessor.isValid(mick), is(true));
+    }
+
+}
