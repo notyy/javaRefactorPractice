@@ -4,7 +4,11 @@ package com.github.notyy.fileProcess.step2;
 import java.io.*;
 
 public class FileProcessor {
-    private final TextContentProcessor textContentProcessor = new TextContentProcessor();
+    private final TextContentProcessor textContentProcessor;
+
+    public FileProcessor(TextContentProcessor textContentProcessor) {
+        this.textContentProcessor = textContentProcessor;
+    }
 
     public void addTitleAndOutput(String srcPath, String targetPath, String[] titles) {
         BufferedReader reader = null;
