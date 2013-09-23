@@ -10,9 +10,6 @@ import java.io.IOException;
 public class TextContentProcessor {
     private String[] titles;
 
-    public TextContentProcessor() {
-    }
-
     public TextContentProcessor(String[] titles){
         this.titles = titles;
     }
