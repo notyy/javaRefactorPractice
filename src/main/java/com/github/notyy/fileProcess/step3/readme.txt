@@ -1,1 +1,1 @@
-process another different format file.
+process delta update and full update
