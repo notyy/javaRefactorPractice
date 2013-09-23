@@ -1,4 +1,4 @@
-package com.github.notyy.fileProcess.step2;
+package com.github.notyy.fileProcess.step3;
 
 import com.github.notyy.fileProcess.utils.StringUtil;
 import org.junit.Test;
