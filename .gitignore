@@ -7,3 +7,4 @@
 *.iml
 sample1_title.csv
 out
+.DS_Store
