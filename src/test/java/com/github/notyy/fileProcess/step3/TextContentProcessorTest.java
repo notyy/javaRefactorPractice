@@ -76,6 +76,7 @@ public class TextContentProcessorTest {
         assertThat(TextContentProcessor.mergeLine("1,zz,[abc,xyz]","1,zz,[def,gef]"),is("1,zz,[abc,xyz,def,gef]"));
         assertThat(TextContentProcessor.mergeLine("1,zz,abc","1,zz,[def,gef]"),is("1,zz,[abc,def,gef]"));
         assertThat(TextContentProcessor.mergeLine("1,zz,abc","1,,def"),is("1,zz,[abc,def]"));
+        assertThat(TextContentProcessor.mergeLine("1,zz,[abc,xyz]","1,zz,[abc,gef]"),is("1,zz,[abc,xyz,gef]"));
     }
 
 
