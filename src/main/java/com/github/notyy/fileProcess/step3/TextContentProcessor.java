@@ -7,7 +7,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -27,10 +26,10 @@ public class TextContentProcessor {
 
     public void addTitleAndCopyContent(BufferedReader reader, BufferedWriter writer) throws IOException {
         writeTitle(writer);
-        CopyContent(reader, writer);
+        copyContent(reader, writer);
     }
 
-    public void CopyContent(BufferedReader reader, BufferedWriter writer) throws IOException {
+    public void copyContent(BufferedReader reader, BufferedWriter writer) throws IOException {
         if (needCheckKey()) {
             List<String> lines = readLines(reader);
             preProcess(lines);
