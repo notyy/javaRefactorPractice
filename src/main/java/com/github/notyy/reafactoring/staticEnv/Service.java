@@ -1,8 +1,12 @@
 package com.github.notyy.reafactoring.staticEnv;
 
 public class Service {
-    public int doSomething() {
+    public void doSomething() {
         String rs = DBRepository.findData();
-        return rs.equals("xx") ? 1 : -1;
+        if (rs.equals("xx")) {
+            FileGenerator.write("1");
+        } else {
+            FileGenerator.write("2");
+        }
     }
 }
