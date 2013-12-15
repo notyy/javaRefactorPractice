@@ -14,7 +14,6 @@ public class OwingCalculator {
     }
 
     public void printOwing() {
-        double total = 0.0;
 
         //print logo
         System.out.println("********************");
@@ -22,17 +21,14 @@ public class OwingCalculator {
         System.out.println("********************");
 
         //calculate total
+        double total = 0.0;
         for(OrderItem orderItem: orderItems){
-            total += getAmount(orderItem);
+            total += orderItem.getAmount();
         }
 
         //print details
         System.out.println("name:" + name);
         System.out.println("amount:" + total);
-    }
-
-    private double getAmount(OrderItem orderItem) {
-        return orderItem.getAmount();
     }
 
     public static void main(String[] args){

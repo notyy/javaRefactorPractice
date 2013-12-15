@@ -1,10 +1,5 @@
-this example used to express following bad smell
-1. too many comments
-2. long method
+this example is used to show basic refactoring
 
-and use following refactor technique to solve them
-1. extract method(p110)
-2. extract class
-3. extract parameter
-4. rename xxx
-5. inline method
+1. move code up and down
+2. extract method
+3. inline method
