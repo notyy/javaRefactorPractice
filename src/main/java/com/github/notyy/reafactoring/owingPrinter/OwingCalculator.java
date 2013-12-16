@@ -14,14 +14,13 @@ public class OwingCalculator {
     }
 
     public void printOwing() {
-
+        double total = 0.0;
         //print logo
         System.out.println("********************");
         System.out.println("***customer owing***");
         System.out.println("********************");
 
         //calculate total
-        double total = 0.0;
         for(OrderItem orderItem: orderItems){
             total += orderItem.getAmount();
         }
