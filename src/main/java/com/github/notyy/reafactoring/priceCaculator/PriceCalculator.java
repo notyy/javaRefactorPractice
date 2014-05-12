@@ -12,7 +12,7 @@ public class PriceCalculator {
     public double getPrice() {
         double basePrice = quantity * itemPrice;
         double discountFactor;
-        if(basePrice >= 1000){
+        if(quantity >= 1000){
             discountFactor = 0.80;
         }else {
             discountFactor = 0.90;
